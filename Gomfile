@@ -1,0 +1,2 @@
+gom 'github.com/codegangsta/cli', :commit => '27ecc97192df1bf053a22b04463f2b51b8b8373e' 
+gom 'github.com/coreos/go-etcd/etcd', :commit => '7745cfd7f8e619cc9e6be450238e6253a57a227f'
