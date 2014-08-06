@@ -16,7 +16,7 @@ The tool is bound to the data structure used by [etcd container presence](https:
 
 The binary has the classical brief help about the arguments that it must and may been provided, showed when `-h`, or it is extended version `--help`, argument is used.
 
-You can download it from [here](https://github.com/DreamItGetIT/etcd-service-registrar/releases/download/v0.0.0/register-service.zip).
+You can download it from [here](https://github.com/DreamItGetIT/etcd-service-registrar/releases/download/v0.0.0/register-service.zip) (Linux x64, compiled and tested on Ubuntu 13.11)
 
 However you can also take a look them there:
 ```
@@ -35,6 +35,7 @@ However you can also take a look them there:
 ## Compile me
 
 To compile it, you must have [gom](https://github.com/mattn/gom) installed and working; then you are ready to compile it, just executing `make`.
+The compilation and execution __only has been tested__ on Ubuntu Linux 13.11 x64.
 
 ## Why we implemented it
 
