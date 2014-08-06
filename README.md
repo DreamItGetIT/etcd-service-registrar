@@ -9,12 +9,32 @@ An opinionated command line tool, implemented in [Go](http://golang.org/), to re
 
 The __local [etcd](http://coreos.com/using-coreos/etcd/) instance__ must run into a docker container, which must expose the [etcd](http://coreos.com/using-coreos/etcd/) client default port 4001 in all the network interfaces, IP `0.0.0.0`, therefore it is accessible under the IP `172.17.42.1` (default docker daemon IP).
 
-The tool is bound to the data structure used by [etcd container presence](https://github.com/DreamItGetIT/etcd-container-presence) used to register the hosts and ports exposed by services, which may be [Docker](https://www.docker.com/) containers but it is not a must.
-    
+The tool is bound to the data structure used by [etcd container presence](https://github.com/DreamItGetIT/etcd-container-presence) used to register the hosts and ports exposed by services, which may be [Docker](https://www.docker.com/) containers but it is not a must, as this tool has been backed to allows to publish the services running in your local machine to give the ability to other services which depend of them to run and access them meanwhile you are working (fixing/refactoring/implementing) on them.
+
 
 ## How to use
 
-WIP
+The binary has the classical brief help about the arguments that it must and may been provided, showed when `-h`, or it is extended version `--help`, argument is used.
+
+You can download it from [here](https://github.com/DreamItGetIT/etcd-service-registrar/releases/download/v0.0.0/register-service.zip).
+
+However you can also take a look them there:
+```
+   --container, -c      The container name or id [REQUIRE]
+   --ip, -i '127.0.0.1' The ip or name of the host where the service is running
+   --port, -p           The original port of the service [REQUIRED]
+   --mapped-port, --mp  The real port which the service is listening; by default port
+   --ttl '0'            The time to live for the registration
+   --delete-all, --da   Remove all the entries for this container on etcd; 
+                        when used only --container is required and used
+   --help, -h           show help
+   --version, -v        print the version
+```
+
+
+## Compile me
+
+To compile it, you must have [gom](https://github.com/mattn/gom) installed and working; then you are ready to compile it, just executing `make`.
 
 ## Why we implemented it
 
