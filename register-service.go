@@ -45,7 +45,7 @@ func commandExecuter(c *cli.Context) {
 		os.Exit(1)
 	}
 
-	fmt.Printf("host's ip and port for container %s registered\n", c.GlobalString("container"))
+	fmt.Printf("the ip or name host and port for container %s registered\n", c.GlobalString("container"))
 	os.Exit(0)
 }
 
@@ -83,12 +83,12 @@ func main() {
 	app.Action = commandExecuter
 	app.Version = "0.0.0"
 	app.Flags = []cli.Flag{
-		cli.StringFlag{Name: "container, c", Usage: "The container name or id"},
-		cli.StringFlag{Name: "ip, i", Value: "127.0.0.1", Usage: "The host's ip name or ip where the service is running"},
-		cli.StringFlag{Name: "port, p", Usage: "The original port of the service"},
+		cli.StringFlag{Name: "container, c", Usage: "The container name or id [REQUIRED]"},
+		cli.StringFlag{Name: "ip, i", Value: "127.0.0.1", Usage: "The ip or name of the host where the service is running"},
+		cli.StringFlag{Name: "port, p", Usage: "The original port of the service [REQUIRED]"},
 		cli.StringFlag{Name: "mapped-port, mp", Usage: "The real port which the service is listening; by default port"},
 		cli.IntFlag{Name: "ttl", Value: 0, Usage: "The time to live for the registration"},
-		cli.BoolFlag{Name: "delete-all, da", Usage: "Remove all the entries for this container on etcd"},
+		cli.BoolFlag{Name: "delete-all, da", Usage: "Remove all the entries for this container on etcd; when used only --container is required and used"},
 	}
 
 	app.Run(os.Args)
